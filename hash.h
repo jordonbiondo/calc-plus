@@ -24,7 +24,7 @@
  * Structure of a hasmap
  */
 struct hashmap_{
-l  varlist** bucket;
+  varlist** bucket;
   int bucketsize;
   int sought;
 };
