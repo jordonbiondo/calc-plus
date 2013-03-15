@@ -13,10 +13,11 @@ int main(void) {
   printf("asdf\n");
   vl_insert(list, "hello", 10);
   vl_insert(list, "bacon", 12);
-  printf("asdf\n");
+  printf("%d\n", vl_search_by_var(list, "hello"));
+  printf("%d\n", vl_search_by_var(list, "hellodoijsdfij"));
   vl_dump(list);
 
-
+  //return 0;
   /*
    * Hashmap initialization
    */
@@ -32,6 +33,9 @@ int main(void) {
   for (i = 0; i < map->bucketsize; i++) {
     vl_dump (map->bucket[i]);
   }
+
+  printf("%d\n", hm_find(map, "apple"));
+  printf("%d\n", map->sought);
   
   
   

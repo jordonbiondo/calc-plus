@@ -1,6 +1,39 @@
+/* linkedvars.h --- linked list implementation for calc+
+ *  
+ * Filename: linkedvars.h
+ * Description: linked list implementation for calc+
+ * Author: Jordon Biondo
+ * Maintainer: 
+ * Created: Fri Mar 15 00:41:01 2013 (-0400)
+ * Version: 
+ * Last-Updated: Fri Mar 15 00:41:15 2013 (-0400)
+ *           By: Jordon Biondo
+ *     Update #: 1
+ * URL: 
+ * Doc URL: 
+ * Keywords: 
+ * Compatibility: 
+ * 
+ */
+
+/* Commentary: 
+ * 
+ * 
+ * 
+ */
+
+/* Change Log:
+ * 
+ * 
+ */
+
+/* Code: */
+
+
 #include <stdlib.h>
 #include <stdio.h>
-
+#include <string.h>
+#include <stdbool.h>
 
 
 /*
@@ -31,16 +64,15 @@ node* new_node(char* var, double value) {
 }
 
 
-
-
-
 /*
  * Structure of a linked list
  */
 struct varlist_ {
   node* first;
   node* last;
+  node* sought;
   int length;
+
 };
 
 /*
@@ -77,6 +109,18 @@ void vl_insert(varlist* list, char* var, double value) {
   list->length++;
 }
 
+bool vl_search_by_var(varlist* list, char* var) {
+  node* n = list->first;
+  while(n) {
+    if (!strcmp(var, n->var)) {
+      list->sought = n;
+      return true; 
+    }
+    n = n->next;
+  }
+  return false;
+}
+
 
 
 /*
@@ -94,3 +138,5 @@ void vl_dump(varlist* list) {
 
 
   
+
+/* linkedvars.h ends here */
