@@ -6,9 +6,9 @@
  * Maintainer:
  * Created: Fri Mar 15 00:38:36 2013 (-0400)
  * Version: .1
- * Last-Updated: Fri Mar 15 00:38:43 2013 (-0400)
+ * Last-Updated: Fri Mar 15 01:03:15 2013 (-0400)
  *           By: Jordon Biondo
- *     Update #: 1
+ *     Update #: 7  
  * URL:
  * Doc URL:
  * Keywords:
@@ -55,14 +55,14 @@ typedef struct hashmap_ hashmap;
 /*
  * Create a hashmap
  */
-hashmap* new_hashmap(int size) {
+hashmap* hm_new(int size) {
   hashmap* map = malloc(sizeof(hashmap));
   map->bucket = malloc(sizeof(varlist*) * size);
   map->bucketsize = size;
   int i;
   for (i = 0; i < size; i++) {
-    map->bucket[i] = new_varlist();
-  }
+    map->bucket[i] = vl_new();
+      }
   return map;
 }
 
@@ -86,11 +86,11 @@ varlist* hm_get_bucket(hashmap* map, char* var) {
 
 
 /*
- * Insert VAR, VALUE pair into map
- * Does not check preexistence
+ * Put a var|value pair in the map, 
+ * if var exists, set new value
  */
-int hm_insert(hashmap* map, char* var, double value) {
-  vl_insert( hm_get_bucket(map, var), var, value);
+int hm_put(hashmap* map, char* var, int value) {
+  vl_put(hm_get_bucket(map, var), var, value);
 }
 
 

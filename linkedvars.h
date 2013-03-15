@@ -41,7 +41,7 @@
  */
 struct node_{
   char* var;
-  double value;
+  int value;
   struct node_* next;
 };
 
@@ -56,7 +56,7 @@ typedef struct node_ node;
 /*
  * Create a new node
  */
-node* new_node(char* var, double value) {
+node* new_node(char* var, int value) {
   node* n = malloc(sizeof(node));
   n->var = var;
   n->value = value;
@@ -81,11 +81,14 @@ struct varlist_ {
 typedef struct varlist_ varlist;
 
 
+varlist* vl_new(void);
+void vl_put(varlist*, char*, int);
+bool vl_search_by_var(varlist*, char*);
 
 /*
  * Create a new linked list.
  */
-varlist* new_varlist(void) {
+varlist* vl_new(void) {
   varlist* list = malloc(sizeof(varlist));
   list->first = NULL;
   list->last = NULL;
@@ -95,19 +98,27 @@ varlist* new_varlist(void) {
 
 
 /*
- * Insert a new node into a var list.
+ * Put a var|value pair node on the list
+ * if there is a VAR node, update it
+ * - This is more of a linked set, than a linked list
  */
-void vl_insert(varlist* list, char* var, double value) {
-  node* n = new_node(var, value);
-  if(list->first == NULL) {
-    list->first = n;
-    list->last = n;
+void vl_put(varlist* list, char* var, int value) {
+  if(vl_search_by_var(list, var)) {
+    list->sought->value = value;
   } else {
-    list->last->next = n;
-    list->last = n;
+    node* n = new_node(var, value);
+    if(list->first == NULL) {
+      list->first = n;
+      list->last = n;
+    } else {
+      list->last->next = n;
+      list->last = n;
+    }
+    list->length++;
   }
-  list->length++;
 }
+
+
 
 bool vl_search_by_var(varlist* list, char* var) {
   node* n = list->first;
@@ -130,7 +141,7 @@ void vl_dump(varlist* list) {
   node* n = list->first;
   printf("--dumping varlist length=%d\n", list->length);
   while (n) {
-    printf("\t{%s=%.2f}\n", n->var, n->value);
+    printf("\t{%s=%d}\n", n->var, n->value); 
     n = n->next;
   }
   printf("--end dump\n");
