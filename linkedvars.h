@@ -3,28 +3,12 @@
  * Filename: linkedvars.h
  * Description: linked list implementation for calc+
  * Author: Jordon Biondo
- * Maintainer: 
+ * Maintainer: Jordon Biondo
  * Created: Fri Mar 15 00:41:01 2013 (-0400)
- * Version: 
- * Last-Updated: Fri Mar 15 00:41:15 2013 (-0400)
+ * Version: .1
+ * Last-Updated: Fri Mar 15 10:33:35 2013 (-0400)
  *           By: Jordon Biondo
- *     Update #: 1
- * URL: 
- * Doc URL: 
- * Keywords: 
- * Compatibility: 
- * 
- */
-
-/* Commentary: 
- * 
- * 
- * 
- */
-
-/* Change Log:
- * 
- * 
+ *     Update #: 7
  */
 
 /* Code: */

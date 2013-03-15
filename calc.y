@@ -1,3 +1,16 @@
+/* calc.y --- yacc for calc+
+ * 
+ * Filename: calc.y - yacc for calc+
+ * Author: Jordon Biondo
+ * Maintainer: Jordon Biondo
+ * Created: Fri Mar 15 00:58:33 2013 (-0400)
+ * Version: .1
+ * Last-Updated: Fri Mar 15 10:33:15 2013 (-0400)
+ *           By: Jordon Biondo
+ *     Update #: 14
+ */
+
+
 %{
 void yyerror (char *s);
 #include <stdio.h>     /* C declarations used in actions */

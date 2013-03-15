@@ -3,30 +3,14 @@
  * Filename: hash.h
  * Description: simple hashmap implementation for calc+
  * Author: Jordon Biondo
- * Maintainer:
+ * Maintainer: Jordon Biondo
  * Created: Fri Mar 15 00:38:36 2013 (-0400)
  * Version: .1
- * Last-Updated: Fri Mar 15 01:03:15 2013 (-0400)
+ * Last-Updated: Fri Mar 15 10:33:20 2013 (-0400)
  *           By: Jordon Biondo
- *     Update #: 7  
- * URL:
- * Doc URL:
- * Keywords:
- * Compatibility:
+ *     Update #: 9  
  *
  */
-
-/* Commentary:
- *
- *
- *
- */
-
-/* Change Log:
- *
- *
- */
-
 
 /* Code: */
 
