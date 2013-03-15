@@ -1,0 +1,10 @@
+linktests
+linked
+hash
+*~
+/lex.yy.c
+/linkedvars
+/calc
+/#linktests.c#
+/y.tab.c
+/y.tab.h
