@@ -104,6 +104,10 @@ void vl_put(varlist* list, char* var, int value) {
 
 
 
+/*
+ * Return true if list contains a node with a var of VAR else false.
+ * If found, sought is set to the matching node. 
+ */
 bool vl_search_by_var(varlist* list, char* var) {
   node* n = list->first;
   while(n) {

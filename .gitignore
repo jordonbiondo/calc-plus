@@ -1,3 +1,5 @@
+Biondo_CalcPlus/*
+finaltest/*
 linktests
 linked
 hash
@@ -8,3 +10,7 @@ hash
 /#linktests.c#
 /y.tab.c
 /y.tab.h
+/Biondo_CalcPlus.zip
+/calc.dSYM/Contents/Info.plist
+/calc.dSYM/Contents/Resources/DWARF/calc
+/.DS_Store
