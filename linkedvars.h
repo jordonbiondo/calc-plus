@@ -40,7 +40,7 @@ typedef struct node_ node;
 /*
  * Create a new node
  */
-node* new_node(char* var, int value) {
+node* node_new(char* var, int value) {
   node* n = malloc(sizeof(node));
   n->var = var;
   n->value = value;
@@ -65,9 +65,13 @@ struct varlist_ {
 typedef struct varlist_ varlist;
 
 
+/*
+ * Function Sigs
+ */
 varlist* vl_new(void);
 void vl_put(varlist*, char*, int);
 bool vl_search_by_var(varlist*, char*);
+void vl_dump(varlist* );
 
 /*
  * Create a new linked list.
@@ -90,7 +94,7 @@ void vl_put(varlist* list, char* var, int value) {
   if(vl_search_by_var(list, var)) {
     list->sought->value = value;
   } else {
-    node* n = new_node(var, value);
+    node* n = node_new(var, value);
     if(list->first == NULL) {
       list->first = n;
       list->last = n;
@@ -134,8 +138,6 @@ void vl_dump(varlist* list) {
   }
   printf("--end dump\n");
 }
-
-
   
 
 /* linkedvars.h ends here */

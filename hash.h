@@ -19,6 +19,7 @@
 #include <stdio.h>
 #include "linkedvars.h"
 
+#define DEFAULT_HASHMAP_SIZE 20
 
 /*
  * Structure of a hasmap
@@ -46,7 +47,7 @@ hashmap* hm_new(int size) {
   int i;
   for (i = 0; i < size; i++) {
     map->bucket[i] = vl_new();
-      }
+  }
   return map;
 }
 
@@ -57,7 +58,6 @@ hashmap* hm_new(int size) {
 int hm_which_bucket(hashmap* map, char* var) {
   return ((int)var[0]-32) % map->bucketsize;
 }
-
 
 
 /*
@@ -79,8 +79,7 @@ int hm_put(hashmap* map, char* var, int value) {
 
 
 /*
- * Return true if MAP contains var,
- * false if not.
+ * Return true if MAP contains entry for VAR, false if not
  * If found, sought is set to VAR's value
  */
 bool hm_find(hashmap* map, char* var) {
