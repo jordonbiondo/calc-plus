@@ -35,8 +35,9 @@ int symbolVal(char* symbol);
 
 %%
 
-/* descriptions of expected inputs     corresponding actions (in C) */
-line : assignment ';'   {;}
+//;
+line 
+: assignment ';'   {;}
 | exit_command ';'      {(EXIT_SUCCESS);}
 | print exp ';'	        {printf("= %d\n", $2);}
 | exp ';'	        {printf("= %d\n", $1);}
@@ -83,5 +84,7 @@ int main(void) {
   return yyparse();
 }
 
-void yyerror (char *s) {fprintf (stderr, "%s\n", s);} 
+void yyerror (char *s) {
+  fprintf (stderr, "%s\n", s);
+} 
 

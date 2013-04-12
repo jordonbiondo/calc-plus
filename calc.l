@@ -1,5 +1,5 @@
 /* calc.l --- flex for calc+
- * 
+ *
  * Filename: calc.l - flex for calc+
  * Author: Jordon Biondo
  * Maintainer: Jordon Biondo
@@ -18,11 +18,12 @@
 #include "y.tab.h"
 #include <string.h>
 %}
+
 %%
 
 "print"	 {
   return print;
-}			   
+}
 "exit" {
   return exit_command;
 }
@@ -43,12 +44,13 @@
   return yytext[0];
 }
 
-. { 
-  ECHO; 
+. {
+  ECHO;
   yyerror ("unexpected character");
 }
 
 %%
+
 int yywrap (void) {return 1;}
 
 
